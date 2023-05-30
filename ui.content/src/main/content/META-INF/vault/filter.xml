@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/aemtools" mode="merge"/>
+    <filter root="/content/aemtools" mode="merge"/>
+    <filter root="/content/dam/aemtools" mode="merge">
+        <exclude pattern="/content/dam/aemtools(/.*)?"/>
+        <include pattern="/content/dam/aemtools/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/aemtools/aem-logo.jpg"/>
+    <filter root="/content/dam/aemtools/aem-logo.png"/>
+    <filter root="/content/dam/aemtools/asset.jpg"/>
+    <filter root="/content/experience-fragments/aemtools" mode="merge"/>
+</workspaceFilter>

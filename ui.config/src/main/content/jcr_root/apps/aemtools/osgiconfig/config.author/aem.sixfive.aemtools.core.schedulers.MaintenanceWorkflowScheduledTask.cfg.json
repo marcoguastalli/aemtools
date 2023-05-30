@@ -1,0 +1,7 @@
+{
+  "enabled": "false",
+  "scheduler.expression": "*/30 * * * * ?",
+  "scheduler.concurrent": false,
+  "server.number": 0,
+  "number.of.days": 1
+}

@@ -1,0 +1,49 @@
+# Service users
+
+- user_config:
+
+    - system-user-content:
+        - name: "System user for /content"
+          path: /home/users/system
+          isSystemUser: true
+
+    - system-user-home:
+        - name: "System user for /home"
+          path: /home/users/system
+          isSystemUser: true
+
+    - system-user-tags:
+        - name: "System user for /content/cq:tags"
+          path: /home/users/system
+          isSystemUser: true
+
+    - aemtools-user-service:
+        - name: "System user aemtools"
+          path: /home/users/system
+          isSystemUser: true
+
+- ace_config:
+
+    - system-user-content:
+        - path: /content
+          permission: allow
+          actions: read
+          privileges:
+
+    - system-user-home:
+        - path: /home
+          permission: allow
+          actions: read
+          privileges:
+
+    - system-user-tags:
+        - path: /content/cq:tags
+          permission: allow
+          actions: read
+          privileges:
+
+    - aemtools-user-service:
+        - path: /var/workflow/instances/
+          permission: allow
+          actions: read,modify,create,delete,acl_read,replicate
+          privileges:

@@ -1,0 +1,6 @@
+{
+  "user.mapping": [
+    "aemtools.core:aemtoolsUserService=aemtools-user-service"
+  ],
+  "README": "Sling User Services Permission are defined in the ACTool yaml files"
+}

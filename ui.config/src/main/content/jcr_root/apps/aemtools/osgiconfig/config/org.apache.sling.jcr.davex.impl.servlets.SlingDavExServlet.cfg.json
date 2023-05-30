@@ -1,0 +1,4 @@
+{
+    "alias": "/crx/server",
+    "dav.create-absolute-uri": "true"
+}
