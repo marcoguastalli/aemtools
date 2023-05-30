@@ -1,6 +1,5 @@
 package aem.sixfive.aemtools.core.servlets;
 
-import static aem.sixfive.aemtools.core.utils.ToolsConstants.DONE;
 import static org.apache.sling.api.servlets.HttpConstants.METHOD_GET;
 import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVLET_METHODS;
 import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVLET_PATHS;
@@ -37,7 +36,6 @@ public class ReplicateContentDamServlet extends AbstractServlet {
             return;
         }
 
-        replicateContentService.replicateDamAssets(request.getResourceResolver(), path.get());
-        printJsonResponseResult(response, DONE);
+        printJsonResponseResult(response, replicateContentService.replicateDamAssets(request.getResourceResolver(), path.get()));
     }
 }

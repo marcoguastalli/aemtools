@@ -44,6 +44,6 @@ public class ToolsConstants {
     public static final String RESPONSE_HEADER_USER_AGENT = "User Agent";
     public static final String PRIMARY_TYPE_CQ_TAGS = "cq:Tag";
     public static final String PRIMARY_TYPE_DAM_ASSET = "dam:Asset";
-    public static final String DONE = "done";
+    public static final String RESOURCE_NAME_REP_POLICY = "rep:policy";
 
 }

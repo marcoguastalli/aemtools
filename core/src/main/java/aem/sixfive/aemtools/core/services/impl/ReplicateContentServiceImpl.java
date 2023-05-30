@@ -4,7 +4,10 @@ import static aem.sixfive.aemtools.core.utils.PageUtils.getPagesRecursively;
 import static aem.sixfive.aemtools.core.utils.ResourceUtils.getResourcesRecursively;
 import static aem.sixfive.aemtools.core.utils.ToolsConstants.CONTENT_CQ_TAGS;
 import static aem.sixfive.aemtools.core.utils.ToolsConstants.PRIMARY_TYPE_DAM_ASSET;
+import static aem.sixfive.aemtools.core.utils.ToolsConstants.RESOURCE_NAME_REP_POLICY;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,30 +34,14 @@ public class ReplicateContentServiceImpl implements ReplicateContentService {
     private Replicator replicator;
 
     @Override
-    public void replicateCqTags(final ResourceResolver resourceResolver) {
+    public List<String> replicateCqTags(final ResourceResolver resourceResolver) {
+        List<String> result = new ArrayList<>();
         try {
             final Resource resource = resourceResolver.getResource(CONTENT_CQ_TAGS);
-            final List<Resource> allResources = getResourcesRecursively(resource);
-            if (!allResources.isEmpty()) {
-                final String[] paths = allResources.stream()
-                        .map(Resource::getPath)
-                        .toArray(String[]::new);
-                final Session session = resourceResolver.adaptTo(Session.class);
-                replicator.replicate(session, ReplicationActionType.ACTIVATE, paths, new ReplicationOptions());
-            }
-        } catch (Exception e) {
-            logger.error("Error replicate cq:tags", e);
-        }
-    }
-
-    @Override
-    public void replicateDamAssets(final ResourceResolver resourceResolver, final String path) {
-        try {
-            final Resource resource = resourceResolver.getResource(path);
-            final List<Resource> allResources = getResourcesRecursively(resource);
-            final List<Resource> resources = allResources
+            final List<Resource> cqTags = getResourcesRecursively(resource);
+            final List<Resource> resources = cqTags
                     .stream()
-                    .filter(r -> r.getResourceType().equals(PRIMARY_TYPE_DAM_ASSET))
+                    .filter(r -> !r.getPath().contains(RESOURCE_NAME_REP_POLICY))
                     .collect(Collectors.toList());
             if (!resources.isEmpty()) {
                 final String[] paths = resources.stream()
@@ -62,27 +49,61 @@ public class ReplicateContentServiceImpl implements ReplicateContentService {
                         .toArray(String[]::new);
                 final Session session = resourceResolver.adaptTo(Session.class);
                 replicator.replicate(session, ReplicationActionType.ACTIVATE, paths, new ReplicationOptions());
+                result = Arrays.asList(paths);
             }
         } catch (Exception e) {
-            logger.error("Error replicate DAM Assets", e);
+            logger.error("Error replicate cq:tags", e);
         }
+        return result;
     }
 
     @Override
-    public void replicatePages(final ResourceResolver resourceResolver, final String path) {
+    public List<String> replicateDamAssets(final ResourceResolver resourceResolver, final String path) {
+        List<String> result = new ArrayList<>();
         try {
             final Resource resource = resourceResolver.getResource(path);
-            final List<Resource> pages = getPagesRecursively(resource);
-            if (!pages.isEmpty()) {
-                final String[] paths = pages.stream()
+            final List<Resource> damResources = getResourcesRecursively(resource);
+            final List<Resource> resources = damResources
+                    .stream()
+                    .filter(r -> r.getResourceType().equals(PRIMARY_TYPE_DAM_ASSET))
+                    .filter(r -> !r.getPath().contains(RESOURCE_NAME_REP_POLICY))
+                    .collect(Collectors.toList());
+            if (!resources.isEmpty()) {
+                final String[] paths = resources.stream()
                         .map(Resource::getPath)
                         .toArray(String[]::new);
                 final Session session = resourceResolver.adaptTo(Session.class);
                 replicator.replicate(session, ReplicationActionType.ACTIVATE, paths, new ReplicationOptions());
+                result = Arrays.asList(paths);
+            }
+        } catch (Exception e) {
+            logger.error("Error replicate DAM Assets", e);
+        }
+        return result;
+    }
+
+    @Override
+    public List<String> replicatePages(final ResourceResolver resourceResolver, final String path) {
+        List<String> result = new ArrayList<>();
+        try {
+            final Resource resource = resourceResolver.getResource(path);
+            final List<Resource> pages = getPagesRecursively(resource);
+            final List<Resource> resources = pages
+                    .stream()
+                    .filter(r -> !r.getPath().contains(RESOURCE_NAME_REP_POLICY))
+                    .collect(Collectors.toList());
+            if (!resources.isEmpty()) {
+                final String[] paths = resources.stream()
+                        .map(Resource::getPath)
+                        .toArray(String[]::new);
+                final Session session = resourceResolver.adaptTo(Session.class);
+                replicator.replicate(session, ReplicationActionType.ACTIVATE, paths, new ReplicationOptions());
+                result = Arrays.asList(paths);
             }
         } catch (Exception e) {
             logger.error("Error replicate pages", e);
         }
+        return result;
     }
 
 }
