@@ -1,6 +1,6 @@
 package aem.sixfive.aemtools.core.servlets;
 
-import static aem.sixfive.aemtools.core.Constants.CONTENT_TYPE_HTML;
+import static aem.sixfive.aemtools.core.utils.ToolsConstants.CONTENT_TYPE_HTML;
 import static org.apache.sling.api.servlets.HttpConstants.METHOD_GET;
 import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVLET_METHODS;
 import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVLET_PATHS;

@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-03-15T19:54:01.190+01:00"
+        cq:lastModified="{Date}2023-05-30T11:23:26.239+02:00"
         cq:lastModifiedBy="admin"
         cq:lastReplicated="{Date}2023-03-15T19:54:03.520+01:00"
         cq:lastReplicatedBy="admin"
@@ -32,11 +32,11 @@
                     <text
                         jcr:created="{Date}2023-03-09T14:34:41.604+01:00"
                         jcr:createdBy="admin"
-                        jcr:lastModified="{Date}2023-03-15T19:54:01.188+01:00"
+                        jcr:lastModified="{Date}2023-05-30T11:23:26.236+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemtools/components/text"
-                        text="&lt;ul>&#xa;&lt;li>Publish DAM:&amp;nbsp;&lt;a href=&quot;/bin/aemtools/replicate/dam?path=/content/dam/aemtools&quot;>/bin/aemtools/replicate/dam?path=/content/dam/&lt;/a>&lt;/li>&#xa;&lt;li>Publish PAGES:&amp;nbsp;&lt;a href=&quot;/bin/aemtools/replicate/pages?path=/content/aemtools&quot;>/bin/aemtools/replicate/pages?path=/content/aemtools&lt;/a>&lt;/li>&#xa;&lt;li>Core Bundle Servlet:&amp;nbsp;&lt;a href=&quot;/bin/rest/core-bundle&quot;>/bin/rest/core-bundle&lt;/a>&lt;/li>&#xa;&lt;li>Home Page as txt:&amp;nbsp;&lt;a href=&quot;/content/aemtools/language-masters/en/home-page/jcr:content.txt&quot;>/content/aemtools/language-masters/en/home-page/jcr:content.txt&lt;/a>&lt;/li>&#xa;&lt;/ul>&#xa;"
+                        text="&lt;ul>&#xa;&lt;li>Publish CQ:TAGS:&amp;nbsp;&lt;a href=&quot;/bin/aemtools/replicate/dam.html?path=/content/dam/aemtools&quot;>/bin/aemtools/replicate/&lt;/a>cqtags&lt;/li>&#xa;&lt;li>Publish DAM:&amp;nbsp;&lt;a href=&quot;/bin/aemtools/replicate/dam?path=/content/dam/aemtools&quot;>/bin/aemtools/replicate/dam?path=/content/dam/&lt;/a>&lt;/li>&#xa;&lt;li>Publish PAGES:&amp;nbsp;&lt;a href=&quot;/bin/aemtools/replicate/pages?path=/content/aemtools&quot;>/bin/aemtools/replicate/pages?path=/content/aemtools&lt;/a>&lt;/li>&#xa;&lt;li>Core Bundle Servlet:&amp;nbsp;&lt;a href=&quot;/bin/aemtools/core-bundle&quot;>/bin/aemtools/core-bundle&lt;/a>&lt;/li>&#xa;&lt;li>Home Page as txt:&amp;nbsp;&lt;a href=&quot;/content/aemtools/language-masters/en/home-page/jcr:content.txt&quot;>/content/aemtools/language-masters/en/home-page/jcr:content.txt&lt;/a>&lt;/li>&#xa;&lt;/ul>&#xa;"
                         textIsRich="true"/>
                     <image
                         jcr:created="{Date}2023-03-09T14:41:14.843+01:00"

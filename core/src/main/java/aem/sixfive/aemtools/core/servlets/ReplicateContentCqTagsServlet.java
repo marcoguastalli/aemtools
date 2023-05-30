@@ -6,7 +6,6 @@ import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVL
 import static org.apache.sling.api.servlets.ServletResolverConstants.SLING_SERVLET_PATHS;
 
 import java.io.IOException;
-import java.util.Optional;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -17,13 +16,12 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import aem.sixfive.aemtools.core.services.ReplicateContentService;
-import aem.sixfive.aemtools.core.utils.ToolsConstants;
 
 @Component(service = Servlet.class, property = {
-        SLING_SERVLET_PATHS + "=" + "/bin/aemtools/replicate/dam",
+        SLING_SERVLET_PATHS + "=" + "/bin/aemtools/replicate/cqtags",
         SLING_SERVLET_METHODS + "=" + METHOD_GET
 })
-public class ReplicateContentDamServlet extends AbstractServlet {
+public class ReplicateContentCqTagsServlet extends AbstractServlet {
 
     @Reference
     private ReplicateContentService replicateContentService;
@@ -32,12 +30,7 @@ public class ReplicateContentDamServlet extends AbstractServlet {
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response)
             throws ServletException, IOException {
 
-        final Optional<String> path = verifyMandatoryRequestParameter(request, response, ToolsConstants.REQ_PARAM_PATH);
-        if (!path.isPresent()) {
-            return;
-        }
-
-        replicateContentService.replicateDamAssets(request.getResourceResolver(), path.get());
+        replicateContentService.replicateCqTags(request.getResourceResolver());
         printJsonResponseResult(response, DONE);
     }
 }

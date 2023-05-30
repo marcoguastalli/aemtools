@@ -2,7 +2,15 @@ package aem.sixfive.aemtools.core.utils;
 
 public class ToolsConstants {
 
+    private ToolsConstants() {
+        throw new UnsupportedOperationException("Do not instantiate this class");
+    }
+
+    public static final String BLANK_SPACE = " ";
+
     public static final String CONTENT_TYPE_JSON = "application/json";
+    public static final String CONTENT_TYPE_HTML = "text/html";
+    public static final String CONTENT_CQ_TAGS = "/content/cq:tags";
 
     public static final String REQ_PARAM_PATH = "path";
 
@@ -34,6 +42,8 @@ public class ToolsConstants {
     public static final String RESPONSE_HEADER_ACCESS_CONTROL_ALLOW_METHODS = "Access-Control-Allow-Methods";
 
     public static final String RESPONSE_HEADER_USER_AGENT = "User Agent";
+    public static final String PRIMARY_TYPE_CQ_TAGS = "cq:Tag";
     public static final String PRIMARY_TYPE_DAM_ASSET = "dam:Asset";
+    public static final String DONE = "done";
 
 }

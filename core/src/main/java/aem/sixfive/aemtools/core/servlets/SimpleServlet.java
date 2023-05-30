@@ -15,7 +15,7 @@
  */
 package aem.sixfive.aemtools.core.servlets;
 
-import static aem.sixfive.aemtools.core.Constants.BLANK_SPACE;
+import static aem.sixfive.aemtools.core.utils.ToolsConstants.BLANK_SPACE;
 import static com.adobe.dam.print.ids.StringConstants.SLING_RESOURCE_TYPE;
 import static com.day.cq.commons.jcr.JcrConstants.JCR_TITLE;
 
